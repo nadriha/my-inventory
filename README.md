@@ -39,7 +39,8 @@ app link: https://steves-inventory.adaptable.app/main
     * Klik `Deploy App`
 
 **Bagan yang berisi request client ke web aplikasi berbasis Django**
-![bagan-django](https://github.com/nadriha/my-inventory/assets/116888619/4c3bad23-1f63-4bd8-8e24-deca26cd5160)
+![bagan-django](https://github.com/nadriha/my-inventory/assets/116888619/2097fc07-8289-4e45-b8ad-36b142e2a896)
+
 Pada bagan tersebut dilihat bahwa request datang dari user yang ditangkap oleh `urls.py`. Kemudian oleh `urls.py` diteruskan ke `views.py` yang akan memroses request tersebut. `views.py` meminta `models.py` mengakses database untuk mengambil data dan akan dikembalikan lagi ke `models.py` dan diteruskan ke `views.py`. Data yang sudah didapat dari `views.py` render oleh `template` dan diberikan lagi ke `views.py` untuk menjadi response kepada user.
 
 **Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
