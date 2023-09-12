@@ -38,8 +38,8 @@ app link: https://steves-inventory.adaptable.app/main
     * Ceklis `HTTP Listener on PORT`
     * Klik `Deploy App`
 
-
-![alt text](/basic-django.png)
+**Bagan yang berisi request client ke web aplikasi berbasis Django**
+![bagan-django](https://github.com/nadriha/my-inventory/assets/116888619/4c3bad23-1f63-4bd8-8e24-deca26cd5160)
 
 **Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
 * Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, tetapi dianjurkan untuk menggunakan virtual environment karena dengan menggunakan virtual environment, kita membuat lingkungan yang terisolasi yang tidak saling terkait dan dapat diaktifkan atau dinonaktifkan sesuai kebutuhan. Hal tersebut bisa digunakan untuk mengelola dependencies proyek secara terpisah dan memungkinkan menggunakan versi Django dan Python yang berbeda.
