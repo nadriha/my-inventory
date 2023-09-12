@@ -9,6 +9,11 @@ app link: https://steves-inventory.adaptable.app/main
 2.  Membuat aplikasi dengan nama main pada proyek tersebut.  
     Menjalankan perintah `python manage.py startapp main`. Django akan membuat direktori [main](/main) yang merupakan sebuah direktori aplikasi untuk mengkonfigurasi fungsionalitas pada aplikasi tersebut. Pada direktori tersebut juga terdapat file-file seperti  `models.py`, `views.py`, `urls.py`, dsb.
 3.  Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
-
+    Agar dapat menjalankan aplikasi main, dalam `settings.py` tedapat variable `INSTALLED_APPS` dan tambahkan main ke dalam isi list tersebut. Hal tersebut berfungsi untuk mengakses model, tampilan, fungsi, dll pada aplikasi `main`
+4.  Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut  
+    `name` sebagai nama item dengan tipe CharField.  
+    `amount` sebagai jumlah item dengan tipe IntegerField.  
+    `description` sebagai deskripsi item dengan tipe TextField.
+    
 
 
