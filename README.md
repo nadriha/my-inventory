@@ -29,7 +29,7 @@ app link: https://steves-inventory.adaptable.app/main
     * Tambahkan variable `urlpatterns` yang berbentuk list.
     * Tambahkan pola URL menggunakan fungsi `path` 
     * Pada parameter fungsi path,  masukan fungsi `show_main` yang sudah di import pada fungsi tersebut.
-7.   Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat.
+7.  Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat.
     * Sign in Adaptable menggunakan GitHub, dan sambungkan repository
     * Pilih repository yag akan dibuat menjadi web
     * Pilih `Python App Template` sebagai template deployment dan `PostgreSQL`sebagai tipe basis data yang akan digunakan.
