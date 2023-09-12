@@ -43,7 +43,7 @@ app link: https://steves-inventory.adaptable.app/main
 
 Pada bagan tersebut dilihat bahwa request datang dari user yang ditangkap oleh `urls.py`. Kemudian oleh `urls.py` diteruskan ke `views.py` yang akan memproses request tersebut. `views.py` meminta `models.py` mengakses database untuk mengambil data dan akan dikembalikan lagi ke `models.py` dan diteruskan lagi ke `views.py`. Data yang sudah didapat dari `views.py` render oleh `template` dan diberikan lagi ke `views.py` untuk menjadi response kepada user.
 
-**Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
+**Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**  
 Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, tetapi dianjurkan untuk menggunakan virtual environment karena dengan menggunakan virtual environment, kita membuat lingkungan yang terisolasi yang tidak saling terkait dan dapat diaktifkan atau dinonaktifkan sesuai kebutuhan. Hal tersebut bisa digunakan untuk mengelola dependencies proyek secara terpisah dan memungkinkan menggunakan versi Django dan Python yang berbeda.
 
 **Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
