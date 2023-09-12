@@ -5,14 +5,14 @@ app link: https://steves-inventory.adaptable.app/main
 **Steps:**
 1.  Membuat proyek Django baru  
 
-    Membuat  dierktori dengan nama aplikasi yang diinginkan dan membuat file [requirements](/requirements.txt) yang berisi kumpulan modul/library/framework yang diperlukan.
-    Menjalankan virtual environtment dengan menjalankan perintah  
-    
+    Membuat  dierktori dengan nama aplikasi yang diinginkan dan membuat file [requirements](/requirements.txt) yang berisi kumpulan modul/library/framework yang .   
+    diperlukanMenjalankan virtual environtment dengan menjalankan perintah  
+
     ```
     env\Scripts\activate.bat
     ```
     Menginstal dependencies tersebut dengan menjalankan perintah
-    ```ruby
+    ```
     pip install -r requirements.txt
     ```
     
