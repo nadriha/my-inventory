@@ -39,7 +39,7 @@ app link: https://steves-inventory.adaptable.app/main
     * Klik `Deploy App`
 
 **Bagan yang berisi request client ke web aplikasi berbasis Django**
-![bagan-django](https://github.com/nadriha/my-inventory/assets/116888619/2097fc07-8289-4e45-b8ad-36b142e2a896)
+![bagan-django](https://github.com/nadriha/my-inventory/assets/116888619/caa929ae-6fe5-4845-a346-6f64004d2dc4)
 
 Pada bagan tersebut dilihat bahwa request datang dari user yang ditangkap oleh `urls.py`. Kemudian oleh `urls.py` diteruskan ke `views.py` yang akan memroses request tersebut. `views.py` meminta `models.py` mengakses database untuk mengambil data dan akan dikembalikan lagi ke `models.py` dan diteruskan ke `views.py`. Data yang sudah didapat dari `views.py` render oleh `template` dan diberikan lagi ke `views.py` untuk menjadi response kepada user.
 
