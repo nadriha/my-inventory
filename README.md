@@ -1,2 +1,2 @@
 # my-inventory
-app link: https://steves-inventory.adaptable.app
+app link: https://steves-inventory.adaptable.app/main
