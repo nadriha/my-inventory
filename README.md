@@ -39,7 +39,7 @@ app link: https://steves-inventory.adaptable.app/main
     * Klik `Deploy App`
 
 
-![alt text](http://https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Introduction/basic-django.png)
+![alt text](/basic-django.png)
 
 **Mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
 * Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, tetapi dianjurkan untuk menggunakan virtual environment karena dengan menggunakan virtual environment, kita membuat lingkungan yang terisolasi yang tidak saling terkait dan dapat diaktifkan atau dinonaktifkan sesuai kebutuhan. Hal tersebut bisa digunakan untuk mengelola dependencies proyek secara terpisah dan memungkinkan menggunakan versi Django dan Python yang berbeda.
