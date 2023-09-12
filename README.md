@@ -10,8 +10,8 @@ Steps:
     env\Scripts\activate.bat
     ```
     Menginstal dependencies tersebut dengan menjalankan perintah
-    ```
-    ruby pip install -r requirements.txt
+    ```ruby
+    pip install -r requirements.txt
     ```
     
 
