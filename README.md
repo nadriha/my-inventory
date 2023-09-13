@@ -58,10 +58,10 @@ a. Model: Tempat untuk data seperti dalam MVC.
 b. View: Komponen untuk membuat tampilan, sama seperti dalam MVC.    
 c. Template: Komponen untuk mengatur bagaimana data ditampilkan di tampilan.
 Mirip dengan MVC tetapi perbedaan terdapat komponen `Template` yang berperan sebagai komponen untuk menampilkan page content dan biasanya berisi kode HTML yang merender data.
-* **MVVM (Model-View-ViewModel)**
+* **MVVM (Model-View-ViewModel)**  
 Sama juga seperti MVC, kode dibagi aplikasi dibagi menjadi 3 komponen, yaitu  
-a. Model: Komponen ini berfungsi sebagai tempat untuk data aplikasi
-b. View: Kode yang akan ditampilkan pada layar aplikasi, memberi tahu ViewModel tentang input dari pengguna, dan tidak ada logika aplikasi di dalam komponen ini.
-c. ViewModel: Perantara antara Model Dan View. Komponen ini menyediakan dan menjaga koneksi aliran data dan memastikan jika data berubah pada model, maka tampilan juga diperbaharui.
+a. Model: Komponen ini berfungsi sebagai tempat untuk data aplikasi  
+b. View: Kode yang akan ditampilkan pada layar aplikasi, memberi tahu ViewModel tentang input dari pengguna, dan tidak ada logika aplikasi di dalam komponen ini.  
+c. ViewModel: Perantara antara Model Dan View. Komponen ini menyediakan dan menjaga koneksi aliran data dan memastikan jika data berubah pada model, maka tampilan juga diperbaharui.  
 Perbedaan terdapat pada ViewModel yang hanya menjadi jembatan antara Model dan View
 
