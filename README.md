@@ -1,7 +1,7 @@
 # steves-inventory🌻🌼
 app link: https://steves-inventory.adaptable.app/main
 
-## Implementasi Model-View-Template (MVT) pada Django
+#### Implementasi Model-View-Template (MVT) pada Django
 **Steps:**
 1.  Membuat proyek Django baru  
     * Membuat  dierktori dengan nama aplikasi yang diinginkan dan membuat file   dependencies seperti file [requirements](/requirements.txt) yang berisi kumpulan modul/library framework yang diperlukan.  
@@ -47,4 +47,4 @@ Pada bagan tersebut dilihat bahwa request datang dari user yang ditangkap oleh `
 Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, tetapi dianjurkan untuk menggunakan virtual environment karena dengan menggunakan virtual environment, kita membuat lingkungan yang terisolasi yang tidak saling terkait dan dapat diaktifkan atau dinonaktifkan sesuai kebutuhan. Hal tersebut bisa digunakan untuk mengelola dependencies proyek secara terpisah dan memungkinkan menggunakan versi Django dan Python yang berbeda.
 
 **Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
-* 
+
