@@ -1,6 +1,6 @@
 from django.db import models
 
-class Product(models.Model):
-    name = models.CharField(max_length=255)
-    amount = models.IntegerField()
-    description = models.TextField()
+class Item(models.Model):
+    name = models.CharField(max_length=255, name='name')
+    amount = models.IntegerField(name='amount')
+    description = models.TextField(name='description')

@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from main.models import Item
 
 class mainTest(TestCase):
     def test_main_url_is_exist(self):
