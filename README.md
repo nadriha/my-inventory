@@ -50,12 +50,12 @@ Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual 
 * MVC(Model-View-Controller)  
 Membagi kode aplikasi dibagi menjadi 3 komponen, yaitu untuk 
 a. Model: Komponen untuk menyimpan data aplikasi, tidak ada kaitannya dengan tampilan aplikasi. Model berfungsi untuk komunikasi dengan database dan jaringan.  
-b. View: Komoponen untuk membuat UI yang mengatur tampilan dari data yang diterima dari Model.
+b. View: Komoponen untuk membuat UI yang mengatur tampilan dari data yang diterima dari Model.  
 c. Controller: Penghubung antara View dan Model. Mengandung logika dari aplikasi.
-* MVT (Model-View-Template)
-Sama seperti MVC kode dibagi aplikasi dibagi menjadi 3 komponen, yaitu
-a. Model: Tempat untuk data seperti dalam MVC.
-b. View: Komponen untuk membuat tampilan, sama seperti dalam MVC.  
+* MVT (Model-View-Template)  
+Sama seperti MVC kode dibagi aplikasi dibagi menjadi 3 komponen, yaitu  
+a. Model: Tempat untuk data seperti dalam MVC.  
+b. View: Komponen untuk membuat tampilan, sama seperti dalam MVC.    
 c. Template: Komponen untuk mengatur bagaimana data ditampilkan di tampilan.
 Mirip dengan MVC tetapi perbedaan terdapat komponen `Template` yang berperan sebagai komponen untuk menampilkan page content dan biasanya berisi kode HTML yang merender data.
 * MVVM (Model-View-ViewModel)  
