@@ -2,7 +2,7 @@
 app link: https://steves-inventory.adaptable.app/main
 
 <details>
-<summary><b>Tugas 2</b></summary>
+<summary>Tugas 2</summary>
 
 #### Implementasi Model-View-Template (MVT) pada Django
 **Steps:**
@@ -69,3 +69,15 @@ c. ViewModel: Perantara antara Model Dan View. Komponen ini menyediakan dan menj
 Perbedaan terdapat pada ViewModel yang hanya menjadi jembatan antara Model dan View
 
 </details>
+
+<details>
+<summary>Tugas 3</summary>
+
+**Apa perbedaan antara form POST dan form GET dalam Django?**
+Method GET dan POST digunakan untuk mengirim data dari client ke server dalam HTTP, tetapi perbedaan utama antara keduanya adalah bahwa method GET membawa parameter permintaan yang ditambahkan dalam string URLnya, sedangkan POST membawa parameter permintaan dalam body, yang membuatnya lebih aman dalam pengiriman data dari client ke server.
+contoh:
+GET = https://www.google.com/search?q=whats+get+method...
+POST = https://www.dummyweb.com/submit-form
+
+
+
