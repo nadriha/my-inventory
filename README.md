@@ -89,7 +89,10 @@ XML adalah markup language yang diguankan untuk menyimpan dan mengirimkan data. 
 Berbeda dari XML, JSON merupakan format file berbasis teks yang mudah dibaca oleh manusia yang umumnya digunakan dalam proses pertukaran data antara server dan client. JSON menggunakan sintaksis yang berbasis objek dengan pasangan nama-nilai yang diapit oleh kurung kurawal {} seperti dictionary pada python. JSON digunakan secara luas dalam pengembangan web untuk pertukaran data antara server dan klien.  
 
 * **HTML**  
-Sama seperti XML, HTML adalah markup language yang digunakan untuk membuat halaman website dan aplikasi web. HTML biasanya digunakan dalam pembuatan tampilan dan struktur halaman web dan memiliki aturan yang lebih terbatas dibandingkan dengan XML dan JSON. HTML menggunakan sintaksis yang mirip dengan XML, tetapi memiliki tujuan yang berbeda dan penamaan tipe data lebih terbatas.
+Sama seperti XML, HTML adalah markup language yang digunakan untuk membuat halaman website dan aplikasi web. HTML biasanya digunakan dalam pembuatan tampilan dan struktur halaman web dan memiliki aturan yang lebih terbatas dibandingkan dengan XML dan JSON. HTML menggunakan sintaksis yang mirip dengan XML, tetapi memiliki tujuan yang berbeda dan penamaan tipe data lebih terbatas.  
+
+**Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**  
+JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pertukaran data dan mengolah proses data pada web. JSON memiliki format teks yang ringan dan memiliki format data yang mudah diurai tanpa perlu menulis banyak kode dalam berbagai bahasa pemrograman yang berbeda. Hal ini menjadikan JSON sangat efisien dalam mentransfer dan menggunakan data tidak seperti pada XML.
 
 </details>
 
