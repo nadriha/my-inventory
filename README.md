@@ -79,5 +79,5 @@ contoh:
 GET = https://www.google.com/search?q=whats+get+method...
 POST = https://www.dummyweb.com/submit-form
 
-
+</details>
 
