@@ -95,38 +95,11 @@ Sama seperti XML, HTML adalah markup language yang digunakan untuk membuat halam
 JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pertukaran data dan mengolah proses data pada web. JSON memiliki format teks yang ringan dan memiliki format data yang mudah diurai tanpa perlu menulis banyak kode dalam berbagai bahasa pemrograman yang berbeda. Hal ini menjadikan JSON sangat efisien dalam mentransfer dan menggunakan data tidak seperti pada XML.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**  
-1.  Menginisiasi kerangka struktur untuk views
-    *   Membuat folder `templates` pada direktori utama dan membat file `base.html`. File ini akan menjadi template yang digunakan untuk halaman lainnya
-        ```
-        {% load static %}
-            <!DOCTYPE html>
-            <html lang="en">
-                <head>
-                    <meta charset="UTF-8" />
-                    <meta
-                        name="viewport"
-                        content="width=device-width, initial-scale=1.0"
-                    />
-                    {% block meta %}
-                    {% endblock meta %}
-                </head>
-
-                <body>
-                    {% block content %}
-                    {% endblock content %}
-                </body>
-            </html>
-        ```
-        
-    *   Menginisiasi template `base.html` pada `settings.py`
-    *   Menambahkan kode template extending pada berkas `main.html`  
-        kode template exteding yaitu berupa `{% extends 'base.html' %}` dan isi konten yang diapit dengan template tag 
-        ```
-        {% block content %}
-            ...
-        {% endblock content %}
-        ```
-
+1.  Membuat input form untuk menambahkan objek model pada app sebelumnya.
+    *   Membuat file `forms.py` untuk menyimpan forms code dengan mengimport `ModelForm`
+    *   Menambahkan class `ItemForm` yang akan menerima input dari user dan ditambahkan ke model `Item`
+    *   Membuat function `create_item` pada `views.py` untuk memproses hasil input yang user berikan. 
+    *   Menambahkan path url `create_item` agar bisa menampilkan `create_item.html` dan menjalankan fungsi `create_item`
 
 **Postman**  
 
