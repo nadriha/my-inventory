@@ -125,6 +125,20 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         data = Item.objects.filter(pk=id)
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
     ```
+
+    *   Menampilkan isi form pada file `main.html` dengan menyisipkan code pada tag `{%block content %}`
+    ```ruby
+        {% for product in products %}
+            <tr>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.date_added}}</td>
+            </tr>
+        {% endfor %}
+    ```
+
+
 3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
     *   Buat path dalam `urls.py` dalam direktori `main` untuk menampilkan respons dari function yang dibuat.  
 
