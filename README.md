@@ -102,7 +102,7 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
     *   Menambahkan path url `create_item` agar bisa menampilkan `create_item.html` dan menjalankan fungsi `create_item`
   
 2. Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
-    *   Pada `views.py`, import `HttpResponse` dan `Serializer` yang digunakan untuk mentranslate objek model menjadi format yang diinginkan dan ditampilkan pada web.
+    *   Pada `views.py` dalam direktori `main`, import `HttpResponse` dan `Serializer` yang digunakan untuk mentranslate objek model menjadi format yang diinginkan dan ditampilkan pada web.
     *   Membuat function yang menerima input dari user, mengambil data dari model dan mengembalikan HTTP Response dengan data yang sudah diubah ke format yang diinginkan   
 
     ```ruby
@@ -126,7 +126,7 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
     ```
 3. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
-    *   Buat path dalam `urls.py` untuk menampilkan respons dari function yang dibuat.  
+    *   Buat path dalam `urls.py` dalam direktori `main` untuk menampilkan respons dari function yang dibuat.  
 
     ```ruby
         path('xml/', show_xml, name='show_xml'), 
