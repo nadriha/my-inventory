@@ -139,14 +139,17 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
     ```
 **Postman**  
+*<b>HTML</b>
+![image](https://github.com/nadriha/my-inventory/assets/116888619/9586608a-434e-4582-9e6b-93f7dec75b56)
 * <b>JSON</b>
-![image](https://github.com/nadriha/my-inventory/assets/116888619/42ae5807-76e6-4609-95be-17c66589f674)
+![image](https://github.com/nadriha/my-inventory/assets/116888619/9dd8d41b-2fed-4c66-97db-54cc3fe7a16e)
 * <b>XML</b>
-![image](https://github.com/nadriha/my-inventory/assets/116888619/83234f82-f8f9-4b00-9a96-60a3800e6284)
+![image](https://github.com/nadriha/my-inventory/assets/116888619/b2ebcc9d-524d-44c5-9636-bc6b1b9eb5f6)
 * <b>JSON by ID</b>
-![image](https://github.com/nadriha/my-inventory/assets/116888619/7c958e0e-5cb9-41c4-8e53-68b58b9ad267)
+![image](https://github.com/nadriha/my-inventory/assets/116888619/99bca72b-e2c2-4ede-8b23-867236d99ada)
 * <b>XML by ID</b>
-![image](https://github.com/nadriha/my-inventory/assets/116888619/d416910e-9d96-4b58-8352-512b970806bf)
+![image](https://github.com/nadriha/my-inventory/assets/116888619/f33b1c2d-4a90-4479-96cf-2e6908979cca)
+
 
 </details>
 
