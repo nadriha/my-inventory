@@ -112,7 +112,9 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
     def show_json(request):
         data = Item.objects.all()
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
+    ```
+    * Jika request membutuhkan `id`, masukkan parameter `id` yang dimuat pada variabel ke dalam fungsi, dan data akan difilter sesuai `id` yang dinput yang terdapat pada variable `pk` pada model. 
+    ```ruby
     def show_xml_by_id(request, id):
         data = Item.objects.filter(pk=id)
         return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -121,6 +123,7 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         data = Item.objects.filter(pk=id)
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
     ```
+    * Buat path dalam `urls.py` untuk menampilkan respons dari function yang dibuat.
 **Postman**  
 
 </details>
