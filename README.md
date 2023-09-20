@@ -103,7 +103,8 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
   
 2. Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
     *   Pada `views.py`, import `HttpResponse` dan `Serializer` yang digunakan untuk mentranslate objek model menjadi format yang diinginkan dan ditampilkan pada web.
-    *   Membuat function yang menerima input dari user, mengambil data dari model dan mengembalikan HTTP Response dengan data yang sudah diubah ke format yang diinginkan 
+    *   Membuat function yang menerima input dari user, mengambil data dari model dan mengembalikan HTTP Response dengan data yang sudah diubah ke format yang diinginkan   
+    
     ```ruby
         def show_xml(request):
     data = Item.objects.all()
@@ -113,7 +114,8 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         data = Item.objects.all()
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
     ```
-    *   Jika request membutuhkan `id`, masukkan parameter `id` yang dimuat pada variabel ke dalam fungsi, dan data akan difilter sesuai `id` yang dinput yang terdapat pada variable `pk` pada model. 
+    *   Jika request membutuhkan `id`, masukkan parameter `id` yang dimuat pada variabel ke dalam fungsi, dan data akan difilter sesuai `id` yang dinput yang terdapat pada variable `pk` pada model.   
+
     ```ruby
     def show_xml_by_id(request, id):
         data = Item.objects.filter(pk=id)
@@ -123,12 +125,14 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         data = Item.objects.filter(pk=id)
         return HttpResponse(serializers.serialize("json", data), content_type="application/json")
     ```
-    *   Buat path dalam `urls.py` untuk menampilkan respons dari function yang dibuat.
+    *   Buat path dalam `urls.py` untuk menampilkan respons dari function yang dibuat.  
+
     ```ruby
         path('xml/', show_xml, name='show_xml'), 
         path('json/', show_json, name='show_json'), 
     ```
-    *   Pada request yang membutuhkan `id`, masukkan variable `id` yang akan dicari ke dalam endpoint tersebut.
+    *   Pada request yang membutuhkan `id`, masukkan variable `id` yang akan dicari ke dalam endpoint tersebut.  
+
     ```ruby
         path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
         path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
