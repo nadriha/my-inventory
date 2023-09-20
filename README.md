@@ -100,7 +100,27 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
     *   Menambahkan class `ItemForm` yang akan menerima input dari user dan ditambahkan ke model `Item`
     *   Membuat function `create_item` pada `views.py` untuk memproses hasil input yang user berikan. 
     *   Menambahkan path url `create_item` agar bisa menampilkan `create_item.html` dan menjalankan fungsi `create_item`
+  
+2. Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+    *   Pada `views.py`, import `HttpResponse` dan `Serializer` yang digunakan untuk mentranslate objek model menjadi format yang diinginkan dan ditampilkan pada web.
+    *   Membuat function yang menerima input dari user, mengambil data dari model dan mengembalikan HTTP Response dengan data yang sudah diubah ke format yang diinginkan 
+    ```ruby
+        def show_xml(request):
+    data = Item.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
+    def show_json(request):
+        data = Item.objects.all()
+        return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+    def show_xml_by_id(request, id):
+        data = Item.objects.filter(pk=id)
+        return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+
+    def show_json_by_id(request, id):
+        data = Item.objects.filter(pk=id)
+        return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+    ```
 **Postman**  
 
 </details>
