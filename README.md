@@ -85,10 +85,10 @@ POST = https://www.dummyweb.com/submit-form
 * **XML**  
 XML adalah markup language yang diguankan untuk menyimpan dan mengirimkan data. XML didefinisikan sebagai aturan untuk mengubah dokumen menjadi sebuah kode yang dapat dibaca oleh mesin dan juga manusia. XML memiliki fleksibilitas yang tinggi karena dapat digunakan untuk mendefinisikan tipe data yang bebas. XML menggunakan sintaks yang berbasis tag dengan elemen yang diapit oleh tanda kurung sudut (<>).  
 
-* **JSON**
+* **JSON**  
 Berbeda dari XML, JSON merupakan format file berbasis teks yang mudah dibaca oleh manusia yang umumnya digunakan dalam proses pertukaran data antara server dan client. JSON menggunakan sintaksis yang berbasis objek dengan pasangan nama-nilai yang diapit oleh kurung kurawal {} seperti dictionary pada python. JSON digunakan secara luas dalam pengembangan web untuk pertukaran data antara server dan klien.  
 
-* **HTML**
+* **HTML**  
 Sama seperti XML, HTML adalah markup language yang digunakan untuk membuat halaman website dan aplikasi web. HTML biasanya digunakan dalam pembuatan tampilan dan struktur halaman web dan memiliki aturan yang lebih terbatas dibandingkan dengan XML dan JSON. HTML menggunakan sintaksis yang mirip dengan XML, tetapi memiliki tujuan yang berbeda dan penamaan tipe data lebih terbatas.
 
 </details>
