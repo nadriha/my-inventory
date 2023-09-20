@@ -97,27 +97,27 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**  
 1.  Menginisiasi kerangka struktur untuk views
     *   Membuat folder `templates` pada direktori utama dan membat file `base.html`. File ini akan menjadi template yang digunakan untuk halaman lainnya
-    ```
-    {% load static %}
-        <!DOCTYPE html>
-        <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1.0"
-                />
-                {% block meta %}
-                {% endblock meta %}
-            </head>
+        ```
+        {% load static %}
+            <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8" />
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0"
+                    />
+                    {% block meta %}
+                    {% endblock meta %}
+                </head>
 
-            <body>
-                {% block content %}
-                {% endblock content %}
-            </body>
-        </html>
-    ```
-    kode pada views akan dimasukan kedalam `body` pada `{% block content %}` dan tidak usah lagi mengetik `head` pada file view.
+                <body>
+                    {% block content %}
+                    {% endblock content %}
+                </body>
+            </html>
+        ```
+        
     *   Menginisiasi template `base.html` pada `settings.py`
     *   Menambahkan kode template extending pada berkas `main.html`  
         kode template exteding yaitu berupa `{% extends 'base.html' %}` dan isi konten yang diapit dengan template tag 
