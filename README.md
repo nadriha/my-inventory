@@ -139,12 +139,14 @@ JSON sering digunakan dalam pertukaran data karena dapat mempermudah proses pert
         path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
     ```
 **Postman**  
+* <b>JSON</b>
 ![image](https://github.com/nadriha/my-inventory/assets/116888619/42ae5807-76e6-4609-95be-17c66589f674)
+* <b>XML</b>
 ![image](https://github.com/nadriha/my-inventory/assets/116888619/83234f82-f8f9-4b00-9a96-60a3800e6284)
-![image](https://github.com/nadriha/my-inventory/assets/116888619/d416910e-9d96-4b58-8352-512b970806bf)
+* <b>JSON by ID</b>
 ![image](https://github.com/nadriha/my-inventory/assets/116888619/7c958e0e-5cb9-41c4-8e53-68b58b9ad267)
-
-
+* <b>XML by ID</b>
+![image](https://github.com/nadriha/my-inventory/assets/116888619/d416910e-9d96-4b58-8352-512b970806bf)
 
 </details>
 
