@@ -76,9 +76,9 @@ Perbedaan terdapat pada ViewModel yang hanya menjadi jembatan antara Model dan V
 #### Form dan Data Delivery
 
 **Apa perbedaan antara form POST dan form GET dalam Django?**
-Method GET dan POST digunakan untuk mengirim data dari client ke server dalam HTTP, tetapi perbedaan utama antara keduanya adalah bahwa method GET membawa parameter permintaan yang ditambahkan dalam string URLnya, sedangkan POST membawa parameter permintaan dalam body, yang membuatnya lebih aman dalam pengiriman data dari client ke server.
-contoh:
-GET = https://www.google.com/search?q=<b>whats+get+method</b>...
+Method GET dan POST digunakan untuk mengirim data dari client ke server dalam HTTP, tetapi perbedaan utama antara keduanya adalah bahwa method GET membawa parameter permintaan yang ditambahkan dalam string URLnya, sedangkan POST membawa parameter permintaan dalam body, yang membuatnya lebih aman dalam pengiriman data dari client ke server.  
+contoh:  
+GET = https://www.google.com/search?q=<b>whats+get+method</b>..  
 POST = https://www.dummyweb.com/submit-form
 
 **Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
