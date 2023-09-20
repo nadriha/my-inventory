@@ -1,5 +1,8 @@
-# steves-inventory🌻🌼
+# my-inventory🌻🌼
 app link: https://steves-inventory.adaptable.app/main
+
+<details>
+<summary><b>Tugas 2</b></summary>
 
 #### Implementasi Model-View-Template (MVT) pada Django
 **Steps:**
@@ -65,3 +68,4 @@ b. View: Kode yang akan ditampilkan pada layar aplikasi, memberi tahu ViewModel 
 c. ViewModel: Perantara antara Model Dan View. Komponen ini menyediakan dan menjaga koneksi aliran data dan memastikan jika data berubah pada model, maka tampilan juga diperbaharui.  
 Perbedaan terdapat pada ViewModel yang hanya menjadi jembatan antara Model dan View
 
+</details>
