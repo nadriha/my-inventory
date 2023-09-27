@@ -23,15 +23,44 @@
                 <td>{{item.name}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.description}}</td>
+                <td>
+                <a href="{% url 'main:delete_item' item.id %}">
+                    <input type="hidden"  value="{{ item.id }}">
+                    <button type="submit" class="btn">Delete</button>
+                </a>
+                <a href="{% url 'main:tambah_item' item.id %}">
+                    <input type="hidden" value="{{ item.id }}">
+                    <button type="submit" class="btn">Tambah Item</button>
+                </a>
+                <a href="{% url 'main:kurang_item' item.id %}">
+                    <input type="hidden" value="{{ item.id }}">
+                    <button type="submit" class="btn">Kurangi Item</button>
+                </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
 
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}  
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    
     <br />
 
     <a href="{% url 'main:create_item' %}">
         <button>
             Add New Item
+        </button>
+    </a>
+    
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
         </button>
     </a>
 
