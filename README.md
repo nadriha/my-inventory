@@ -8,14 +8,16 @@ app link: https://steves-inventory.adaptable.app/main
 **Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**  
 Django UserCreationForm adalah tool yang dapat membuat login pengguna dengan cara mengimpor authentication modul pada django. UserCreationForm ini digunakan untuk membuat user baru dalam sebuah aplikasi django dengan sebuah form. UserCreationForm juga merupakan sebuat template untuk membuat user yang memiliki tiga input, yaitu username, password1, dan password2 (yang digunakan untuk konfirmasi kata sandi). Didalamnya juga sudah terdapat authentikasi agar semua input yang diberikan oleh user adalah valid.  
 Kelebihan:  
-* Mudah digunakan  
-* Efisiensi waktu  
-Kekurangan:  
-* Tampilan default yang kurang sesuai untuk pengguna  
-* Terbatas untuk validasi yang kompleks
+- Mudah digunakan  
+- Efisiensi waktu  
 
-**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
-Autentikasi yaitu proses dimana Django memverifikasi seorang user adalah benar user dari aplikasi tersebut, sementara otorisasi yaitu proses dimana Django memberikan izin/menentukan izin apa yang bisa dilakukan oleh pengguna yang telah terautentikasi. Autentikasi dan otorisasi dalam Django sangat penting karena keduanya berperan dalam menjaga keamanan dan perlindungan data dalam aplikasi web. Dengan memadukan autentikasi dan otorisasi yang sesuai, kita dapat menjaga tingkat keamanan, mengendalikan hak akses, melindungi privasi pengguna, dan bahkan mendeteksi pelaku jika terjadi suatu penyalahgunaan aplikasi.
+Kekurangan:  
+- Tampilan default yang kurang sesuai untuk pengguna  
+- Terbatas untuk validasi yang kompleks
+
+**Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**  
+Autentikasi yaitu proses dimana Django memverifikasi seorang user adalah benar user dari aplikasi tersebut, sementara otorisasi yaitu proses dimana Django memberikan izin/menentukan izin apa yang bisa dilakukan oleh pengguna yang telah terautentikasi.  
+Autentikasi dan otorisasi dalam Django sangat penting karena keduanya berperan dalam menjaga keamanan dan perlindungan data dalam aplikasi web. Dengan memadukan autentikasi dan otorisasi yang sesuai, kita dapat menjaga tingkat keamanan, mengendalikan hak akses, melindungi privasi pengguna, dan bahkan mendeteksi pelaku jika terjadi suatu penyalahgunaan aplikasi.
 
 **Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
 
