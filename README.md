@@ -17,11 +17,18 @@ Kekurangan:
 
 **Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**  
 Autentikasi yaitu proses dimana Django memverifikasi seorang user adalah benar user dari aplikasi tersebut, sementara otorisasi yaitu proses dimana Django memberikan izin/menentukan izin apa yang bisa dilakukan oleh pengguna yang telah terautentikasi.  
+
 Autentikasi dan otorisasi dalam Django sangat penting karena keduanya berperan dalam menjaga keamanan dan perlindungan data dalam aplikasi web. Dengan memadukan autentikasi dan otorisasi yang sesuai, kita dapat menjaga tingkat keamanan, mengendalikan hak akses, melindungi privasi pengguna, dan bahkan dapat mendeteksi pelaku jika terjadi suatu penyalahgunaan aplikasi.
 
-**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+**Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**  
+Cookies adalah data yang berukuran kecil yang disimpan pada sisi klien/user. Cookies digunakan oleh aplikasi web untuk menyimpan informasi yang dapat diakses kembali saat pengguna melakukan request pada situs web yang sama.  
 
+Pada Django, cookies biasanya digunakan untuk menyimpan Session ID yang dapat dianggap sebagai suatu token (barisan karakter) untuk mengenali session yang unik pada aplikasi web tertentu. Session ID ini kemudian dipetakan ke suatu database pada sisi web server. Kemudian, saat klien mengirimkan request, browser juga mengirimkan suatu session ID ke server. Server akan mencari data pada database berdasarkan session ID yang didapat, lalu mengembalikan data yang diminta.
 
+**Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**  
+Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman karena data cookies hanya dapat diakses oleh server yang mengatur cookie tersebut. Namun, terdapat juga risiko potensial cookies yang harus diwaspadai, yaitu ketika cookie mengandung informasi yang sensitif, seperti password, cookies yang tidak dienkripsi, dan juga pencurian cookies.  
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 </details>
 
 <details>
