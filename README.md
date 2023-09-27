@@ -29,8 +29,68 @@ Pada Django, cookies biasanya digunakan untuk menyimpan Session ID yang dapat di
 Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman karena data cookies hanya dapat diakses oleh server yang mengatur cookie tersebut. Namun, terdapat juga risiko potensial cookies yang harus diwaspadai, yaitu ketika cookie mengandung informasi yang sensitif, seperti password, cookies yang tidak dienkripsi, dan juga pencurian cookies.  
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.**
-1.  Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
-    *   
+1.  Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.  
+    **Registrasi**
+    *   Mengimport library `redirect`, `UserCreationForm`, dan `messages` pada `views.py`
+    *   Membuat function `register` dengan form dari `UserCreationForm`
+        ```ruby
+        def register(request):
+        form = UserCreationForm()
+
+        if request.method == "POST":
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Your account has been successfully created!')
+                return redirect('main:login')
+        context = {'form':form}
+        return render(request, 'register.html', context)
+        ```
+    *   Membuat tampilan html (`register.html`) pada direktori `templates` untuk menampilkan form untuk registrasi
+    *   Pada `register.html` taruh form yang didapat dari `UserCreationForm`
+        ` {{ form.as_table }}` dan menaruh button `Daftar` untuk mensubmit form.
+    *   Menambahkan path url ke dalam `urls.py` dan memasukan function `register` yang telah diimport dari `views.py`  
+
+    **Login**
+    *   Mengimport function `authenticate` dan `login` dari `django.contrib.auth`
+    *   Membuat function untuk login user 
+        ```ruby
+        def login_user(request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                response = HttpResponseRedirect(reverse("main:show_main")) 
+                response.set_cookie('last_login', str(datetime.datetime.now()))
+                return response
+            else:
+                messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+        context = {}
+        return render(request, 'login.html', context)
+        ```
+    *   Membuat tampilan html (`register.html`) pada direktori `templates` untuk menampilkan halaman login
+    *   Menambahkan path url ke dalam `urls.py` dan memasukan function `login_user` yang telah diimport dari `views.py`  
+
+    **Logout**
+    *   Mengimport function `logout` dari `django.contrib.auth`
+    *   Membuat function untuk logout
+        ```ruby
+        def logout_user(request):
+            logout(request)
+            response = HttpResponseRedirect(reverse('main:login'))
+            response.delete_cookie('last_login')
+            return response
+        ```
+    *   Tambahkan button untuk logout pada `main.html` yang di-link menucu path `logout`
+    *   Menambahkan path url ke dalam `urls.py` dan memasukan function `logout_user` yang telah diimport dari `views.py`  
+
+    *   Agar pengguna yang masuk hanya pengguna yang sudah login, maka masukkan kode
+        ```ruby
+        @login_required(login_url='/login')
+        ```
+        pada barus sebelum fungsi `show_main` dibuat.
 
 2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.  
     *   Membuat akun pengguna dengan cara klik `Register Now`
@@ -52,18 +112,31 @@ Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman kare
         item.user = request.user
         item.save()
         ```
-    *   Tambahkan filter pada variable items di fungsi `show_main` pada `main.html` agar item yang diambil pada variable `items` hanya item yang cocok dengan nama user, dan ubah isi `name` dalam `context` dengan mengambil username dari request agar nama yang ditampilkan pada `mail.html` adalah username pengguna.
+    *   Tambahkan filter pada variable items di fungsi `show_main` pada `main.html` agar item yang diambil pada variable `items` hanya item yang cocok dengan nama user.
         ```ruby
         def show_main(request):
         products = Item.objects.filter(user=request.user)
+        ```  
+    * Migrate agar perubahan pada model dapat teraplikasi.  
+
+4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.  
+    **Menampilkan detail informasi pengguna yang sedang logged in**
+    *   Pada fungsi `show_main` bagian `context`, ambil username dari properti dari objek `request.user` dan masukan ke dalam variable `name`.
+        ```ruby
+        def show_main(request):
+        products = Product.objects.filter(user=request.user)
 
         context = {
             'name': request.user.username,
         }
-        ```  
-    * Migrate agar perubahan pada model dapat teraplikasi.  
-    
-4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+        ```
+    **Cookies seperti last login pada halaman utama aplikasi**
+    *   Pada fungsi `login_user` ketika user berhasil login, masukan waktu kapan user tersebut login dengan cara:
+        ```ruby
+        response.set_cookie('last_login', str(datetime.datetime.now()))
+        ```
+    *   Pada fungsi `show_main`, tambahkan variable `last_login` di dalam context yang mempunyai value `request.COOKIES['last_login']`. Kode tersebut mereturn variable `last_login` yang dibuat saat user login. 
+    *   Agar variable `last_login` dapat muncul pada halaman utama aplikasi web, tambahkan kode `<h5>Sesi terakhir login: {{ last_login }}</h5>` pada `main.html`
 
 </details>
 
