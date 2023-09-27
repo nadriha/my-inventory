@@ -28,7 +28,43 @@ Pada Django, cookies biasanya digunakan untuk menyimpan Session ID yang dapat di
 **Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**  
 Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman karena data cookies hanya dapat diakses oleh server yang mengatur cookie tersebut. Namun, terdapat juga risiko potensial cookies yang harus diwaspadai, yaitu ketika cookie mengandung informasi yang sensitif, seperti password, cookies yang tidak dienkripsi, dan juga pencurian cookies.  
 
-**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step.**
+1.  Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+    *   
+
+2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.  
+    *   Membuat akun pengguna dengan cara klik `Register Now`
+    *   Memasukan username dan password sesuai ketentuan
+    *   Klik `Daftar`
+    *   Login sesuai username dan password yang di daftarkan
+    *   Klik `Add New Item` untuk menambah barang di Inventory
+
+3. Menghubungkan model Item dengan User.  
+    *   Mengimport `User` pada `models.py`
+    *   Menambahkan variable `User` dengan menggunakan `ForeignKey` agar setiap item dapat diasosiasikan dengan seotang user
+        ```ruby
+        class Item(models.Model):
+            user = models.ForeignKey(User, on_delete=models.CASCADE)
+        ```
+    *   Ubah fungsi `create_item` pada `views.py` agar mempunyai attribut `user` dengan cara mengambil variable user pada request
+        ```ruby
+        item = form.save(commit=False)
+        item.user = request.user
+        item.save()
+        ```
+    *   Tambahkan filter pada variable items di fungsi `show_main` pada `main.html` agar item yang diambil pada variable `items` hanya item yang cocok dengan nama user, dan ubah isi `name` dalam `context` dengan mengambil username dari request agar nama yang ditampilkan pada `mail.html` adalah username pengguna.
+        ```ruby
+        def show_main(request):
+        products = Item.objects.filter(user=request.user)
+
+        context = {
+            'name': request.user.username,
+        }
+        ```  
+    * Migrate agar perubahan pada model dapat teraplikasi.  
+    
+4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+
 </details>
 
 <details>
