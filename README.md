@@ -98,6 +98,8 @@ Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman kare
     *   Klik `Daftar`
     *   Login sesuai username dan password yang di daftarkan
     *   Klik `Add New Item` untuk menambah barang di Inventory
+   ![messageImage_1695777866470](https://github.com/nadriha/my-inventory/assets/116888619/103e1d96-d66f-4699-a8f3-d583e0d5491f)
+   ![messageImage_1695778156459](https://github.com/nadriha/my-inventory/assets/116888619/207eafaa-eb09-480a-ae43-2939de18a2ff)
 
 3. Menghubungkan model Item dengan User.  
     *   Mengimport `User` pada `models.py`
