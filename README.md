@@ -17,9 +17,10 @@ Kekurangan:
 
 **Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**  
 Autentikasi yaitu proses dimana Django memverifikasi seorang user adalah benar user dari aplikasi tersebut, sementara otorisasi yaitu proses dimana Django memberikan izin/menentukan izin apa yang bisa dilakukan oleh pengguna yang telah terautentikasi.  
-Autentikasi dan otorisasi dalam Django sangat penting karena keduanya berperan dalam menjaga keamanan dan perlindungan data dalam aplikasi web. Dengan memadukan autentikasi dan otorisasi yang sesuai, kita dapat menjaga tingkat keamanan, mengendalikan hak akses, melindungi privasi pengguna, dan bahkan mendeteksi pelaku jika terjadi suatu penyalahgunaan aplikasi.
+Autentikasi dan otorisasi dalam Django sangat penting karena keduanya berperan dalam menjaga keamanan dan perlindungan data dalam aplikasi web. Dengan memadukan autentikasi dan otorisasi yang sesuai, kita dapat menjaga tingkat keamanan, mengendalikan hak akses, melindungi privasi pengguna, dan bahkan dapat mendeteksi pelaku jika terjadi suatu penyalahgunaan aplikasi.
 
 **Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+
 
 </details>
 
