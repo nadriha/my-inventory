@@ -137,8 +137,16 @@ Secara default, cookies adalah mekanisme penyimpanan data yang relatif aman kare
         ```ruby
         response.set_cookie('last_login', str(datetime.datetime.now()))
         ```
-    *   Pada fungsi `show_main`, tambahkan variable `last_login` di dalam context yang mempunyai value `request.COOKIES['last_login']`. Kode tersebut mereturn variable `last_login` yang dibuat saat user login. 
-    *   Agar variable `last_login` dapat muncul pada halaman utama aplikasi web, tambahkan kode `<h5>Sesi terakhir login: {{ last_login }}</h5>` pada `main.html`
+    *   Pada fungsi `show_main`, tambahkan variable `last_login` di dalam `context` yang mempunyai value
+        ```ruby
+        request.COOKIES['last_login']
+        ```
+        Kode tersebut mereturn variable `last_login` yang dibuat saat user login. 
+    *   Agar variable `last_login` dapat muncul pada halaman utama aplikasi web, tambahkan kode 
+        ```ruby
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+        ```` 
+        pada `main.html`.
 
 </details>
 
