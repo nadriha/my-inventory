@@ -36,7 +36,7 @@ Banyak sekali Tag HTML, dan berikut adalah beberapa Tag HTML yang saya ketahui:
 *   `<header>` digunakan untuk menunjukkan head dari sebuah halaman, biasanya berisi seperti judu, navbar, dll.
 
 **Jelaskan perbedaan antara margin dan padding.**    
-![image](https://github.com/nadriha/my-inventory/assets/116888619/34814590-073f-4b43-96d6-9e2e434da693)
+![image](https://github.com/nadriha/my-inventory/assets/116888619/34814590-073f-4b43-96d6-9e2e434da693)  
 Bisa dilihat dari gambar diatas, padding adalah ruang di dalam elemen, yaitu jarak antara isi di dalam elemen dengan batas elemen itu sendiri. Padding memengaruhi elemen dengan cara memberikan ruang tambahan di dalam elemen tersebut. Sedangkan margin adalah ruang di luar elemen, yang berarti itu adalah jarak antara elemen  dengan elemen-elemen lain di sekitarnya. Margin memengaruhi elemen dengan cara membuat jarak antara elemen dan elemen-elemen lain yang ada di sekitarnya.  
 
 **Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**    
@@ -45,6 +45,259 @@ Tailwind CSS adalah kerangka kerja CSS membangun tampilan dengan menggabungkan k
 Bootstrap cocok ketika kita membutuhkan website dengan solusi yang simple dengan komponen yang telah dibuatkan sebelumnya dan konsistensi tampilan yang kuat. Di sisi lain, Tailwind cocok ketika kita menginginkan kustomisasi yang tinggi, mengutamakan ukuran file yang kecil, dan ingin memahami secara mendalam bagaimana tampilan dibangun.
 
 **Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
+*   Karena saya menginginkan kode yang terpisah untuk HTML dan CSS, saya membuat directory baru bernama static yang akan menyimpan file CSS dan elemen yang dibutuhkan.
+*   Buat `styles.css` untuk mengatur style pada elemen HTML
+*   Hubungkan `styles.css` dengan file HTML dengan menambahkan kode
+    ```ruby
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    ```
+    pada `head` di `base.html`
+*   Hubungkan `styles.css` dengan projek Django utuk menggunakan static files yang merupakan file-file pendukung HTML pada suatu situs web dengan menambahkan kode
+    ```ruby
+    STATICFILES_DIRS = [
+    BASE_DIR / "static"
+    ]
+    ```
+*   Mengubah tampilan login pada `login.html` dengan membuat border dan mengubah margin-marginnya
+    ```ruby
+    {% block content %}
+    <div class="login container background d-flex justify-content-center align-items-center min-vh-100">
+        
+        <div class=" border-minecraft p-3" style="width: 50%;">
+            <h1>Login</h1>
+
+            <form method="POST" action="">
+                {% csrf_token %}
+                <div>
+                    <div class="mb-2">
+                        <label for="username" class="form-label mb-0">Username</label>
+                        <input type="text" class="form-control border-minecraft mt-0" style="background-color: #c6c6c6;border-radius: 0;" id="username" name="username" placeholder="Username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label mb-0">Password</label>
+                        <input type="password" class="form-control border-minecraft mt-0" style="background-color: #c6c6c6;border-radius: 0;" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="button-minecraft mb-2 ">Login</button>
+                </div>
+            </form>
+
+            {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <div class="mt-auto">
+                Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+    ```
+*   Mengubah tampilan `register.html` agar sama dengan `login.html` dengan menambahkan border dan background
+    ```ruby
+    {% block content %}  
+
+    <div class="container register background d-flex justify-content-center align-items-center min-vh-100">
+        <div class="row border-minecraft p-3" style="width: 70%;">
+                <h1>Register</h1>
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="button-minecraft" style="height: 2rem;">Register</button>
+                </form>
+                
+                {% if messages %}
+                    <div class="alert alert-info mt-3">
+                        <ul>
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            
+        </div>
+    </div>
+
+    {% endblock content %}
+    ```
+*   Mengubah tampilan `create_item.html` dan `edit_product.html` menggunakan template yang sama dengan menambahkan border dan juga mengubah padding pada container
+*   Pada setiap langkah langkah diatas, saya menambahkan style pada css eksternal (`styles.css`) dengan kode berikut
+    ```ruby
+    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+    body{
+        font-family: 'VT323';
+        background-color: #c6c6c6;
+        
+    }
+
+    .border-minecraft {
+        background-color: #8b8b8b ; 
+        box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
+                    inset -2px -2px 0px #ffffff;
+        height: 100%;
+
+    }
+
+    .button-minecraft {
+        background-color: #c6c6c6 ; 
+        box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
+                    inset -2px -2px 0px #ffffff;
+        height: 100%;
+    }
+
+    .tidak-bold {
+        font-weight: normal; /* This makes the font not bold */
+    }
+
+    .mepet {
+        padding: 0;
+        margin: 0;
+    }
+
+    .lebar-max{
+        width: 100%;
+    }
+
+    .login{
+        background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        max-width: 100%;
+    }
+
+    .register{
+        background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+        background-size: cover;
+        background-repeat: no-repeat;
+        max-width: 100%;
+    }
+
+    ```
+*   Tambahkan navbar pada `main.html` dengan menggunakan template yang tersedia dari Bootsrap. 
+*   Tambahkan Header yang berisi nama, kelas, dan kapan terakhir user login.
+*   Gunakan grid pada Bootsrap untuk menampilkan list of item, yang seiap column dipakaikan border masing masing.
+    ```ruby
+    {% extends 'base.html' %}
+
+    {% block content %}
+
+        <!--Navigation Bar-->
+        <nav id="navigation" class="navbar navbar-expand-lg navbar-dark border-minecraft">
+            <div class="container">
+                <p class="navbar-brand fs-2 p-0 mb-0" href="#" >MY INVENTORY</p>
+                <a class="fs-5" href = "{% url 'main:logout' %}">
+                    <button class="border-minecraft" style="background-color: #c6c6c6; ">Logout</button >
+                </a>
+            
+            </div>
+        </nav>
+        <!--End Navigation Bar-->
+        <!--Header-->
+        <section style="background-color: #c6c6c6;">
+            <h2 class="text-center m-0 pt-2">Hello, {{name}} from {{class}}!</h2>
+            <p class="text-center mb-0">Last login: {{ last_login }}</p>
+        </section>
+        <!--End of Header-->
+        <!--Tabel-->
+        <section style="background-color: #c6c6c6;">
+            <div class="container items text-center mb-3" style="max-width: 60%;">
+                <div class="row">
+                <div class="col">
+                    <h5 class="mt-4 mb-2">{{name}}'s Inventory</h2>
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                    Name
+                    </div>
+                    <div class="col-1">
+                        Amount
+                    </div>
+                    <div class="col-4">
+                        Description
+                    </div>
+                </div>
+                {% for item in items %}
+                <div class="row justify-content-center">
+                    <div class="col-3 mepet">
+                        <p class="border-minecraft mepet fs-5">{{item.name}}</p>
+                    </div>
+                    <div class="col-1 mepet">
+                        <p class="border-minecraft mepet fs-5">{{item.amount}}</p>
+                    </div>
+                    <div class="col-4 mepet">
+                        <p class="border-minecraft mepet fs-5">{{item.description}}</p>
+                    </div>
+                    <div class="col-1 p-0" >
+                        <a href="{% url 'main:delete_item' item.id %}">
+                            <input type="hidden"  value="{{ item.id }}">
+                            <button class="button-minecraft lebar-max">Delete</button>
+                        </a>
+                    </div>
+                    <div class="col-1 p-0" >
+                        <a href="{% url 'main:edit_product' item.pk %}">
+                            <button class="button-minecraft lebar-max">
+                                Edit
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-1 p-0">
+                        <a href="{% url 'main:tambah_item' item.id %}">
+                            <input type="hidden" value="{{ item.id }}">
+                            <button class="button-minecraft lebar-max">+</button>
+                        </a>
+                    </div>
+                    <div class="col-1 p-0">
+                        <a href="{% url 'main:kurang_item' item.id %}">
+                            <input type="hidden" value="{{ item.id }}">
+                            <button class="button-minecraft lebar-max">-</button>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+        <!--End of Tabel-->
+        <!--Messages-->
+        </section style="background-color: #c6c6c6; min-height: 2rem;">
+            {% if messages %}
+                <ul class="text-center">
+                    {% for message in messages %}
+                        <p class="mt-2">{{ message }}</p>
+                    {% endfor %}
+                </ul>
+            {% endif %} 
+        </section> 
+        <!--End of messages-->
+        <!--Add Item-->
+        <section class="text-center" style="background-color: #c6c6c6">
+            <a href="{% url 'main:create_item' %}">
+                <button class="button-minecraft" style="width: 10rem;">
+                    Add New Item
+                </button>
+            </a>
+            
+            <a href="{% url 'main:logout' %}">
+                <button class="button-minecraft" style="width: 10rem">
+                    Logout
+                </button>
+            </a>
+        </section>
+        <!--End of Add Item-->
+    {% endblock content %}
+    ```
+*   Tambahkan kode dibawah, untuk menandakan elemen `p` terakhir pada `row` berubah menjadi warna merah
+    ```ruby
+    .row:last-child p{
+    background-color: red;
+    }
+    ```
 
 
 </details>
