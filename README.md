@@ -36,6 +36,7 @@ Banyak sekali Tag HTML, dan berikut adalah beberapa Tag HTML yang saya ketahui:
 *   `<header>` digunakan untuk menunjukkan head dari sebuah halaman, biasanya berisi seperti judu, navbar, dll.
 
 **Jelaskan perbedaan antara margin dan padding.**    
+![image](https://github.com/nadriha/my-inventory/assets/116888619/34814590-073f-4b43-96d6-9e2e434da693)
 Bisa dilihat dari gambar diatas, padding adalah ruang di dalam elemen, yaitu jarak antara isi di dalam elemen dengan batas elemen itu sendiri. Padding memengaruhi elemen dengan cara memberikan ruang tambahan di dalam elemen tersebut. Sedangkan margin adalah ruang di luar elemen, yang berarti itu adalah jarak antara elemen  dengan elemen-elemen lain di sekitarnya. Margin memengaruhi elemen dengan cara membuat jarak antara elemen dan elemen-elemen lain yang ada di sekitarnya.  
 
 **Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**    
