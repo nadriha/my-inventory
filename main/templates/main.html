@@ -1,67 +1,108 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>MY INVENTORY</h1>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
-
-    <h5>Class:</h5>
-    <p>{{class}}</p>
-
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Description</th>
-        </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-        {% for item in items %}
-            <tr>
-                <td>{{item.name}}</td>
-                <td>{{item.amount}}</td>
-                <td>{{item.description}}</td>
-                <td>
-                <a href="{% url 'main:delete_item' item.id %}">
-                    <input type="hidden"  value="{{ item.id }}">
-                    <button type="submit" class="btn">Delete</button>
-                </a>
-                <a href="{% url 'main:tambah_item' item.id %}">
-                    <input type="hidden" value="{{ item.id }}">
-                    <button type="submit" class="btn">Tambah Item</button>
-                </a>
-                <a href="{% url 'main:kurang_item' item.id %}">
-                    <input type="hidden" value="{{ item.id }}">
-                    <button type="submit" class="btn">Kurangi Item</button>
-                </a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
+    <!--Navigation Bar-->
+    <nav id="navigation" class="navbar navbar-expand-lg navbar-dark border-minecraft">
+        <div class="container">
+            <p class="navbar-brand fs-2 p-0 mb-0" href="#" >MY INVENTORY</p>
+            <a class="fs-5" href = "{% url 'main:logout' %}">
+                <button class="border-minecraft" style="background-color: #c6c6c6; ">Logout</button >
+            </a>
+          
+        </div>
+      </nav>
+    <!--End Navigation Bar-->
+    <!--Header-->
+    <section style="background-color: #c6c6c6;">
+        <h2 class="text-center m-0 pt-2">Hello, {{name}} from {{class}}!</h2>
+        <p class="text-center mb-0">Last login: {{ last_login }}</p>
+    </section>
+    <!--End of Header-->
+    <!--Tabel-->
+    <section style="background-color: #c6c6c6;">
+        <div class="container text-center mb-3" style="max-width: 60%;">
+            <div class="row">
+              <div class="col">
+                <h5 class="mt-4 mb-2">{{name}}'s Inventory</h2>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                  Name
+                </div>
+                <div class="col-1">
+                    Amount
+                </div>
+                <div class="col-4">
+                    Description
+                </div>
+            </div>
+            {% for item in items %}
+            <div class="row justify-content-center">
+                <div class="col-3 mepet">
+                    <p class="border-minecraft mepet fs-5">{{item.name}}</p>
+                </div>
+                <div class="col-1 mepet">
+                    <p class="border-minecraft mepet fs-5">{{item.amount}}</p>
+                </div>
+                <div class="col-4 mepet">
+                    <p class="border-minecraft mepet fs-5">{{item.description}}</p>
+                </div>
+                <div class="col-1 p-0" >
+                    <a href="{% url 'main:delete_item' item.id %}">
+                        <input type="hidden"  value="{{ item.id }}">
+                        <button class="button-minecraft lebar-max">Delete</button>
+                    </a>
+                </div>
+                <div class="col-1 p-0" >
+                    <a href="{% url 'main:edit_product' item.pk %}">
+                        <button class="button-minecraft lebar-max">
+                            Edit
+                        </button>
+                    </a>
+                </div>
+                <div class="col-1 p-0">
+                    <a href="{% url 'main:tambah_item' item.id %}">
+                        <input type="hidden" value="{{ item.id }}">
+                        <button class="button-minecraft lebar-max">+</button>
+                    </a>
+                </div>
+                <div class="col-1 p-0">
+                    <a href="{% url 'main:kurang_item' item.id %}">
+                        <input type="hidden" value="{{ item.id }}">
+                        <button class="button-minecraft lebar-max">-</button>
+                    </a>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
-    {% endif %}  
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-    
-    <br />
-
-    <a href="{% url 'main:create_item' %}">
-        <button>
-            Add New Item
-        </button>
-    </a>
-    
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
-
+        </div>
+    </section>
+    <!--End of Tabel-->
+    <!--Messages-->
+    </section style="background-color: #c6c6c6; min-height: 2rem;">
+        {% if messages %}
+            <ul class="text-center">
+                {% for message in messages %}
+                    <p class="mt-2">{{ message }}</p>
+                {% endfor %}
+            </ul>
+        {% endif %} 
+    </section> 
+    <!--End of messages-->
+    <!--Add Item-->
+    <section class="text-center" style="background-color: #c6c6c6">
+        <a href="{% url 'main:create_item' %}">
+            <button class="button-minecraft" style="width: 10rem;">
+                Add New Item
+            </button>
+        </a>
+        
+        <a href="{% url 'main:logout' %}">
+            <button class="button-minecraft" style="width: 10rem">
+                Logout
+            </button>
+        </a>
+    </section>
+     <!--End of Add Item-->
 {% endblock content %}

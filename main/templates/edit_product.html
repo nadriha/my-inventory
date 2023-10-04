@@ -1,11 +1,12 @@
-
 {% extends 'base.html' %}
+
+{% load static %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     
     <div class="border-minecraft p-3" style="width: 40%;">
-        <h1>Add New Item</h1>
+        <h1>Edit Item</h1>
 
         <form method="POST">
             {% csrf_token %}
@@ -14,7 +15,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Add Item" class="button-minecraft mb-2">
+                        <input type="submit" value="Edit Item" class="button-minecraft mb-2">
                     </td>
                 </tr>
             </table>

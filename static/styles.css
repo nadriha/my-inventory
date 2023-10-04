@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body{
+    font-family: 'VT323';
+    background-color: #c6c6c6;
+    
+}
+
+.border-minecraft {
+    background-color: #8b8b8b ; 
+    box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
+                inset -2px -2px 0px #ffffff;
+    height: 100%;
+
+}
+
+.button-minecraft {
+    background-color: #c6c6c6 ; 
+    box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
+                inset -2px -2px 0px #ffffff;
+    height: 100%;
+}
+
+.tidak-bold {
+    font-weight: normal; /* This makes the font not bold */
+}
+
+.mepet {
+    padding: 0;
+    margin: 0;
+}
+
+.lebar-max{
+    width: 100%;
+}
+
+.login{
+    background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}
+
+.register{
+    background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-width: 100%;
+}

@@ -2,6 +2,53 @@
 app link: https://steves-inventory.adaptable.app/main
 
 <details>
+<summary>Tugas 5</summary>
+
+#### Desain Web menggunakan HTML, CSS dan Framework CSS
+**Manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya**  
+*   Element Selector: digunakan untuk mengubah style semua elemen yang memiliki tag HTML yang sama.
+    ```ruby
+    p {
+  
+    }
+    ```
+*   ID Selector: digunakan untuk mengubah style elemen HTML yang memiliki ID unik yang sesuai
+    ```ruby
+    #header{
+    ...
+    }
+    ```
+*   Class Selector: digunakan untuk mengubah style semua elemen yang memiliki class yang sama. Biasanya digunakan untuk elemen HTML yang mempunyai beberapa style yang sama.
+    ```ruby
+    .card-header{
+    ...
+    }
+    ```
+
+**Jelaskan HTML5 Tag**   
+Banyak sekali Tag HTML, dan berikut adalah beberapa Tag HTML yang saya ketahui:
+*   `<p>` digunakan untuk membuat paragraf teks.
+*   `<br>` digunakan untuk membuat pemisah baris (line break) dalam teks.
+*   `<ul>` digunakan untuk membuat list yang  tak terurut (unordered list).
+*   `<ol>` digunakan untuk membuat list yang terurut (ordered list). 
+*   `<li>` digunakan dalam elemen `<ul>` dan `<ol>` untuk menandakan setiap item dalam daftar. 
+*   `<div>` digunakan untuk membuat kontainer yang biasanya digunakan untuk mengelompokkan elemen HTML lainnya.
+*   `<header>` digunakan untuk menunjukkan head dari sebuah halaman, biasanya berisi seperti judu, navbar, dll.
+
+**Jelaskan perbedaan antara margin dan padding.**    
+Bisa dilihat dari gambar diatas, padding adalah ruang di dalam elemen, yaitu jarak antara isi di dalam elemen dengan batas elemen itu sendiri. Padding memengaruhi elemen dengan cara memberikan ruang tambahan di dalam elemen tersebut. Sedangkan margin adalah ruang di luar elemen, yang berarti itu adalah jarak antara elemen  dengan elemen-elemen lain di sekitarnya. Margin memengaruhi elemen dengan cara membuat jarak antara elemen dan elemen-elemen lain yang ada di sekitarnya.  
+
+**Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?**    
+Tailwind CSS adalah kerangka kerja CSS membangun tampilan dengan menggabungkan kelas-kelas utilitas yang telah didefinisikan sebelumnya. Ini memungkinkan tingkat kustomisasi yang tinggi dan ukuran file CSS yang lebih kecil karena hanya memuat kelas-kelas utilitas yang telah didefinisikan sebelumnya. Selain itu, Tailwind CSS memiliki memberikan fleksibilitas dan adaptabilitas tinggi terhadap proyek. Sedangkan Bootstrap, adalah kerangka kerja CSS "component based" yang menyediakan sejumlah besar komponen UI siap pakai, tetapi mungkin memerlukan lebih banyak penyesuaian. Oleh karena itu, Bootstrap memiliki file CSS yang lebih besar dibandingkan dengan Tailwind CSS karena termasuk banyak komponen yang telah didefinisikan. Bootstrap sering kali menghasilkan tampilan yang lebih konsisten di seluruh proyek karena menggunakan komponen yang telah didefinisikan.
+
+Bootstrap cocok ketika kita membutuhkan website dengan solusi yang simple dengan komponen yang telah dibuatkan sebelumnya dan konsistensi tampilan yang kuat. Di sisi lain, Tailwind cocok ketika kita menginginkan kustomisasi yang tinggi, mengutamakan ukuran file yang kecil, dan ingin memahami secara mendalam bagaimana tampilan dibangun.
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
+
+
+</details>
+
+<details>
 <summary>Tugas 4</summary>
 
 #### Implementasi Autentikasi, Session, dan Cookies pada Django

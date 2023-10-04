@@ -1,45 +1,41 @@
 {% extends 'base.html' %}
-
+<title>Login</title>
 {% block meta %}
-    <title>Login</title>
+
 {% endblock meta %}
 
 {% block content %}
+<div class="login container d-flex justify-content-center align-items-center min-vh-100">
+    
+    <div class=" border-minecraft p-3" style="width: 50%;">
+        <h1>Login</h1>
 
-<div class = "login">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div>
+                <div class="mb-2">
+                    <label for="username" class="form-label mb-0">Username</label>
+                    <input type="text" class="form-control border-minecraft mt-0" style="background-color: #c6c6c6;border-radius: 0;" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label mb-0">Password</label>
+                    <input type="password" class="form-control border-minecraft mt-0" style="background-color: #c6c6c6;border-radius: 0;" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="button-minecraft mb-2 ">Login</button>
+            </div>
+        </form>
 
-    <h1>Login</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
+        <div class="mt-auto">
+            Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+        </div>
+    </div>
 </div>
-
 {% endblock content %}
