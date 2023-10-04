@@ -182,6 +182,7 @@ Bootstrap cocok ketika kita membutuhkan website dengan solusi yang simple dengan
 *   Tambahkan navbar pada `main.html` dengan menggunakan template yang tersedia dari Bootsrap. 
 *   Tambahkan Header yang berisi nama, kelas, dan kapan terakhir user login.
 *   Gunakan grid pada Bootsrap untuk menampilkan list of item, yang seiap column dipakaikan border masing masing.
+*   Ubah tampilan button-button dengan memakaikan class yang sama
     ```ruby
     {% extends 'base.html' %}
 
