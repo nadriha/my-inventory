@@ -298,8 +298,6 @@ Bootstrap cocok ketika kita membutuhkan website dengan solusi yang simple dengan
     background-color: red;
     }
     ```
-
-
 </details>
 
 <details>
