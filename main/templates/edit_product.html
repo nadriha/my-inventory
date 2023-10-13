@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% load static %}
-
 {% block content %}
 <style>
     @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
@@ -40,24 +38,6 @@
         width: 100%;
     }
 
-    .login{
-        background-image: url('../images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
-        background-size: cover;
-        background-repeat: no-repeat;
-        max-width: 100%;
-    }
-
-    .register{
-        background-image: url('../images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
-        background-size: cover;
-        background-repeat: no-repeat;
-        max-width: 100%;
-    }
-
-    .list-items:last-child p{
-        background-color: red;
-    }
-
     form input[type="textarea"] {
         width: 100%;
     }
@@ -83,5 +63,4 @@
 
     </div>
 </div>
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}
