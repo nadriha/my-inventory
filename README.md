@@ -193,8 +193,7 @@ Berdasarkan perbedaan perbedaan tersebut, menurut saya Fetch API lebih cocok pad
         python manage.py collectstatic
     ```
 
-
-</summary>
+</details>
 
 <details>
 <summary>Tugas 5</summary>
