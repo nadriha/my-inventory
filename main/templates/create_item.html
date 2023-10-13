@@ -1,6 +1,6 @@
 
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
     
@@ -22,4 +22,5 @@
 
     </div>
 </div>
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock %}
