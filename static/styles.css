@@ -11,13 +11,13 @@ body{
     box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
                 inset -2px -2px 0px #ffffff;
     height: 100%;
-
 }
 
 .button-minecraft {
     background-color: #c6c6c6 ; 
     box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
                 inset -2px -2px 0px #ffffff;
+
     height: 100%;
 }
 
@@ -48,6 +48,10 @@ body{
     max-width: 100%;
 }
 
-.row:last-child p{
+.list-items:last-child p{
     background-color: red;
-  }
+}
+
+form input[type="textarea"] {
+    width: 100%;
+}

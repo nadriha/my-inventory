@@ -38,49 +38,48 @@
                     Description
                 </div>
             </div>
-            {% for item in items %}
-            <div class="row justify-content-center">
-                <div class="col-3 mepet">
-                    <p class="border-minecraft mepet fs-5">{{item.name}}</p>
-                </div>
-                <div class="col-1 mepet">
-                    <p class="border-minecraft mepet fs-5">{{item.amount}}</p>
-                </div>
-                <div class="col-4 mepet">
-                    <p class="border-minecraft mepet fs-5">{{item.description}}</p>
-                </div>
-                <div class="col-1 p-0" >
-                    <a href="{% url 'main:delete_item' item.id %}">
-                        <input type="hidden"  value="{{ item.id }}">
-                        <button class="button-minecraft lebar-max">Delete</button>
-                    </a>
-                </div>
-                <div class="col-1 p-0" >
-                    <a href="{% url 'main:edit_product' item.pk %}">
-                        <button class="button-minecraft lebar-max">
-                            Edit
-                        </button>
-                    </a>
-                </div>
-                <div class="col-1 p-0">
-                    <a href="{% url 'main:tambah_item' item.id %}">
-                        <input type="hidden" value="{{ item.id }}">
-                        <button class="button-minecraft lebar-max">+</button>
-                    </a>
-                </div>
-                <div class="col-1 p-0">
-                    <a href="{% url 'main:kurang_item' item.id %}">
-                        <input type="hidden" value="{{ item.id }}">
-                        <button class="button-minecraft lebar-max">-</button>
-                    </a>
-                </div>
+            <div class="row table-items">
             </div>
-            {% endfor %}
         </div>
     </section>
     <!--End of Tabel-->
+
+    <!--Modal-->
+    <div class="modal fade border-minecraft" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.1);">
+        <div class="modal-dialog">
+            <div class="modal-content border-minecraft" style="border-radius: 0;">
+                <div class="modal-header border-minecraft" style="border-radius: 0;">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body border-minecraft" style="border-radius: 0;">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" style="border-radius: 0;"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount" style="border-radius: 0;"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description" style="border-radius: 0;"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-minecraft" style="border-radius: 0;">
+                    <button type="button" class="button-minecraft" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button-minecraft" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--End of Modal-->
+
     <!--Messages-->
-    </section style="background-color: #c6c6c6; min-height: 2rem;">
+    <section class="message-box" style="background-color: #c6c6c6; min-height: 2rem;">
         {% if messages %}
             <ul class="text-center">
                 {% for message in messages %}
@@ -90,7 +89,9 @@
         {% endif %} 
     </section> 
     <!--End of messages-->
+
     <!--Add Item-->
+    <button type="button" class="button-minecraft mx-auto d-block mb-2" style="width: 10rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
     <section class="text-center" style="background-color: #c6c6c6">
         <a href="{% url 'main:create_item' %}">
             <button class="button-minecraft" style="width: 10rem;">

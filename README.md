@@ -2,6 +2,201 @@
 app link: https://steves-inventory.adaptable.app/main
 
 <details>
+<summary>Tugas 6</summary>
+
+#### JavaScript dan Asynchronous JavaScript  
+**Perbedaan antara asynchronous programming dengan synchronous programming**  
+Synchronous programming adalah sebuah model pemrograman dimana setiap instruksi dieksekusi satu per satu, dan program menunggu hingga satu instruksi selesai sebelum menjalankan yang berikutnya. Ini berarti bahwa jika ada operasi yang memakan waktu seperti mengambil data dari internet, program akan terhenti dan tidak merespons hingga operasi tersebut selesai. Contohnya adalah saat kita mengambil data dari server dengan AJAX.
+
+Asynchronus programming adalah model pemrograman dimana program dapat melanjutkan menjalankan instruksi lain sambil menunggu operasi tersebut selesai. Contohnya, dengan menggunakan promise atau async/await dalam JavaScript kita dapat mengirim request AJAX ke server selagi menjalankan kode lain saat menunggu responsnya
+
+**Event-driven programming**  
+Event-driven programming adalah paradigma pemrograman di mana program merespons peristiwa (events) yang terjadi dalam sistem atau aplikasi dengan sebuah event listener (fungsi atau metode yang akan dijalankan ketika peristiwa terjadi).  
+
+```ruby
+	document.getElementById("button_add").onclick = addProduct
+```
+Pada kode tersebut `.onclick` merupakan suatu event dari elemen button yang diambil, dan `addProduct` adalah sebuah event listener (method yang dijalankan) dari event tersebut.
+
+**Jelaskan penerapan asynchronous programming pada AJAX**  
+Asynchronous programming pada AJAX memungkinkan pertukaran data dengan server tanpa menghentikan operasi lainnya, hal itu dapat membuat server hanya merender bagian yang diperlukan sebagai respons saat pengguna mengirimkan permintaan. Oleh karena itu, halaman web tetap responsif dan dinamis serta memungkinkan interaksi yang mulus tanpa perlu memuat ulang seluruh halaman.
+
+**Penerapan AJAX menggunakan Fetch API/library jQuery**  
+Fetch API dan  jQuery adalah teknologi yang biasa digunakan untuk melakukan permintaan AJAX dalam pengembangan web. Adapun perbedaan antara Fetch API dan jQuery:
+*   Fetch API adalah API standar yang telah disertakan dalam semua browser modern. Hal ini berarti Anda tidak perlu lagi mengunduh atau mengimpor library tambahan untuk melakukan permintaan AJAX seperti jQuery.
+*   Fetch API menggunakan Promise, yang memungkinkan Anda untuk menulis kode yang lebih bersih dan mudah dibaca saat menangani respons dan kesalahan, sedangkan jQuery memakai callback.  
+
+Berdasarkan perbedaan perbedaan tersebut, menurut saya Fetch API lebih cocok pada tugas kali ini karena aplikasi yang dibuat masih relatif sederhana dan cocok untuk pemula
+
+**Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step**
+1.  **AJAX GET**
+    *   Karena saya menginginkan kode yang terpisah untuk Javascript,  saya menyimpan file javascript di dalam folder static yang sudah saya buat sebelumnya.
+    *   Buat `script.js` untuk membuat file Javascript pada elemen HTML
+    *   Hubungkan `script.js` dengan file HTML dengan menambahkan kode
+        ```ruby
+            <script src="{% static 'script.js' %}"></script>
+        ```
+        pada `body` di `base.html`
+    *   Agar dapat mengambil data item menggunakan AJAX GET, buat fungsi `getItem()` pada `views.py`
+        ```ruby
+            def get_product_json(request):
+                product_item = Item.objects.filter(user=request.user)
+                return HttpResponse(serializers.serialize('json', product_item))
+        ```
+        Fungsi tersebut meminta semua data yang dimiliki oleh user tertentu
+    *   Buat path pada `urls.py` untuk menjalankan function tersebut
+        ```ruby
+            path('get-product/', get_product_json, name='get_product_json'),
+        ```
+    *   Buat fungsi untuk mengambil data dari server dengan menggunakan AJAX GET
+        ```ruby
+            async function getItems() {
+                return fetch("/get-product/").then((res) => res.json())
+            }
+        ```
+    *   Membuat fungsi `showItems()` untuk menampilkan seluruh data yang sudah diambil dari function `getItems()`. 
+        ```ruby
+            const listItems = document.querySelector(".table-items");
+            async function showItems() {
+                listItems.innerHTML = '';
+                let output = "";
+                const items = await getItems()
+                items.forEach(item => {
+                    output += `
+                    <div class="row list-items justify-content-center">
+                        <div class="col-3 mepet">
+                                <p class="border-minecraft mepet fs-5">${item.fields.name}</p>
+                            </div>
+                            <div class="col-1 mepet">
+                                <p class="border-minecraft mepet fs-5">${item.fields.amount}</p>
+                            </div>
+                            <div class="col-4 mepet">
+                                <p class="border-minecraft mepet fs-5">${item.fields.description}</p>
+                            </div>
+                            <div class="col-1 p-0" >
+                                <button onclick="deleteItem(${item.pk});" class="button-minecraft lebar-max">Delete</button>
+                            </div>
+                            <div class="col-1 p-0" >
+                                <button onclick="editItem()" class="button-minecraft lebar-max">Edit</button>
+                            </div>
+                            <div class="col-1 p-0">
+                                <button onclick="plusItem(${item.pk});" class="button-minecraft lebar-max">+</button>       
+                            </div>
+                            <div class="col-1 p-0">
+                                <button onclick="minItem(${item.pk});" class="button-minecraft lebar-max">-</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                });
+                listItems.innerHTML = output;
+            }
+        ```
+    *   Panggil fungsi `showItem()` pada Javascript untuk menjalankan fungsi tersebut.
+
+2.  **AJAX POST**
+    *   Buat modal untuk menampilkan form
+        ```ruby
+            <div class="modal fade border-minecraft" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: rgba(0, 0, 0, 0.1);">
+                <div class="modal-dialog">
+                    <div class="modal-content border-minecraft" style="border-radius: 0;">
+                        <div class="modal-header border-minecraft" style="border-radius: 0;">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body border-minecraft" style="border-radius: 0;">
+                            <form id="form" onsubmit="return false;">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="name" class="col-form-label">Name:</label>
+                                    <input type="text" class="form-control" id="name" name="name" style="border-radius: 0;"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="col-form-label">Amount:</label>
+                                    <input type="number" class="form-control" id="amount" name="amount" style="border-radius: 0;"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="col-form-label">Description:</label>
+                                    <textarea class="form-control" id="description" name="description" style="border-radius: 0;"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer border-minecraft" style="border-radius: 0;">
+                            <button type="button" class="button-minecraft" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="button-minecraft" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ```
+    *   Buat button untuk menampilkan modal yang sudah dibuat dengan menargetkan modal yang ber-id `exampleModal`
+        ```ruby
+            <button type="button" class="button-minecraft mx-auto d-block mb-2" style="width: 10rem;" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+        ```
+    *   Agar dapat mengirim data item menggunakan AJAX POST, buat fungsi `add_item_ajax()` pada `views.py`
+        ```ruby
+            @csrf_exempt
+            def add_item_ajax(request):
+                if request.method == 'POST':
+                    name = request.POST.get("name")
+                    amount = request.POST.get("amount")
+                    description = request.POST.get("description")
+                    user = request.user
+
+                    new_product = Item(name=name, amount=amount, description=description, user=user)
+                    new_product.save()
+
+                    response_data = {
+                        'success': True,
+                        'message': 'Berhasil menambahkan ' + name
+                    }
+                return JsonResponse(response_data)
+        ```
+        Fungsi tersebut menambahkan Item baru pada model yang dibuat dan mengirimkan response berupa status dan pesan sukses
+    *   Buat path pada `urls.py` untuk menjalankan function tersebut
+        ```ruby
+            path('create-ajax/', add_item_ajax, name='add_item_ajax'),
+        ```
+    *   Buat fungsi untuk mengambil data dari server dengan menggunakan AJAX POST
+        ```ruby
+            async function addProduct() {
+                fetch("/create-ajax/", {
+                    method: "POST",
+                    body: new FormData(document.querySelector('#form'))
+                })
+                .then(res => res.json())
+                .then(data =>{
+                    if (data.success){
+                        showItems();
+                        messageBox.innerHTML = `
+                        <p class="text-center">${data.message}<p>
+                        `;
+                    }
+                })
+                document.getElementById("form").reset()
+                return false
+            }
+
+            document.getElementById("button_add").onclick = addProduct
+        ```
+3.  **Melakukan perintah collectstatic**
+    memodifikasi bagian `STATIC_URL` dan `STATIC_ROOT` pada `settings.py`
+    ```ruby
+        STATIC_URL = 'static/'
+
+        STATICFILES_DIRS = [
+            BASE_DIR / "static"
+        ]
+    ```
+    Jalankan pertintah untuk `collectstatic`
+    ```ruby
+        python manage.py collectstatic
+    ```
+
+
+</summary>
+
+<details>
 <summary>Tugas 5</summary>
 
 #### Desain Web menggunakan HTML, CSS dan Framework CSS
