@@ -179,19 +179,19 @@ Berdasarkan perbedaan perbedaan tersebut, menurut saya Fetch API lebih cocok pad
 
         document.getElementById("button_add").onclick = addProduct
         ```
-3.  **Melakukan perintah collectstatic**
-    memodifikasi bagian `STATIC_URL` dan `STATIC_ROOT` pada `settings.py`
-    ```ruby
-    STATIC_URL = 'static/'
+3.  **Melakukan perintah collectstatic**  
+    *   Memodifikasi bagian `STATIC_URL` dan `STATIC_ROOT` pada `settings.py`
+        ```ruby
+        STATIC_URL = 'static/'
 
-    STATICFILES_DIRS = [
-        BASE_DIR / "static"
-    ]
-    ```
-    Jalankan pertintah untuk `collectstatic`
-    ```ruby
-    python manage.py collectstatic
-    ```
+        STATICFILES_DIRS = [
+            BASE_DIR / "static"
+        ]
+        ```
+    *   Jalankan pertintah untuk `collectstatic`
+        ```ruby
+        python manage.py collectstatic
+        ```
 
 </details>
 
