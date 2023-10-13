@@ -35,14 +35,14 @@ body{
 }
 
 .login{
-    background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+    background-image: url('../images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 100%;
 }
 
 .register{
-    background-image: url('/static/images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
+    background-image: url('../images/minecraft-wallpaper-hd.jpg'); /* Update the path to your background image */
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 100%;
