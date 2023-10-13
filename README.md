@@ -192,7 +192,6 @@ Berdasarkan perbedaan perbedaan tersebut, menurut saya Fetch API lebih cocok pad
         ```ruby
         python manage.py collectstatic
         ```
-
 </details>
 
 <details>
