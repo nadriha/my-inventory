@@ -1,5 +1,5 @@
 # my-inventory🌻🌼
-app link: https://steves-inventory.adaptable.app/main
+[APP LINK](http://nadhira-raihana-tugas.pbp.cs.ui.ac.id/)
 
 <details>
 <summary>Tugas 6</summary>
