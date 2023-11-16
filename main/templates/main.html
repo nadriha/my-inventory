@@ -117,7 +117,7 @@
                 </div>
                 <div class="modal-footer border-minecraft" style="border-radius: 0;">
                     <button type="button" class="button-minecraft" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="button-minecraft" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                    <button type="button" class="button-minecraft" id="button_add"  >Add Product</button>
                 </div>
             </div>
         </div>
@@ -163,7 +163,7 @@
 
         async function showItems() {
             listItems.innerHTML = '';
-            let output = "";
+                ;
             const items = await getItems()
             items.forEach(item => {
                 output += `
