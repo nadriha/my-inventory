@@ -1,59 +1,12 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load static %}
 {% block meta %}
     <title>Register</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
 {% endblock meta %}
 
 {% block content %}  
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
-
-    body{
-        font-family: 'VT323';
-        background-color: #c6c6c6; 
-    }
-
-    .border-minecraft {
-        background-color: #8b8b8b ; 
-        box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
-                    inset -2px -2px 0px #ffffff;
-        height: 100%;
-    }
-
-    .button-minecraft {
-        background-color: #c6c6c6 ; 
-        box-shadow: inset 1.5px 1.5px 0px rgba(55, 55, 55, 0.8), 
-                    inset -2px -2px 0px #ffffff;
-
-        height: 100%;
-    }
-
-    .tidak-bold {
-        font-weight: normal; /* This makes the font not bold */
-    }
-
-    .mepet {
-        padding: 0;
-        margin: 0;
-    }
-
-    .lebar-max{
-        width: 100%;
-    }
-
-    .register{
-        background-image: url("https://c4.wallpaperflare.com/wallpaper/268/398/448/video-games-minecraft-wallpaper-preview.jpg");/* Update the path to your background image */
-        background-size: cover;
-        background-repeat: no-repeat;
-        max-width: 100%;
-    }
-
-    form input[type="textarea"] {
-        width: 100%;
-    }
-</style>
-
 <div class="container register d-flex justify-content-center align-items-center min-vh-100">
     <div class="row border-minecraft p-3" style="width: 70%;">
             <h1>Register</h1>
@@ -76,4 +29,5 @@
         
     </div>
 </div>
+<script src="{% static 'main/script.js' %}"></script>
 {% endblock content %}
