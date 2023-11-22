@@ -1,4 +1,10 @@
+
 {% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <title>my inventory</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+{% endblock meta %}
 
 {% block content %}
 
@@ -106,4 +112,5 @@
         </a>
     </section>
      <!--End of Add Item-->
+     <script src="{% static 'main/script.js' %}"></script>
 {% endblock content %}

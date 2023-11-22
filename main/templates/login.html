@@ -1,7 +1,9 @@
-{% extends 'base.html' %}
-<title>Login</title>
-{% block meta %}
 
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
 {% endblock meta %}
 
 {% block content %}
@@ -38,4 +40,5 @@
         </div>
     </div>
 </div>
+<script src="{% static 'main/script.js' %}"></script>
 {% endblock content %}

@@ -1,7 +1,9 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load static %}
 {% block meta %}
     <title>Register</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
 {% endblock meta %}
 
 {% block content %}  
@@ -28,5 +30,5 @@
         
     </div>
 </div>
-
+<script src="{% static 'main/script.js' %}"></script>
 {% endblock content %}

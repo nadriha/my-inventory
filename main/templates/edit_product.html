@@ -1,6 +1,10 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% load static %}
+{% block meta %}
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="{% static 'main/styles.css' %}">
+{% endblock meta %}
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -23,4 +27,5 @@
 
     </div>
 </div>
+<script src="{% static 'main/script.js' %}"></script>
 {% endblock %}
