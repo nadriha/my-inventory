@@ -6,3 +6,4 @@ class Item(models.Model):
     amount = models.IntegerField(name='amount')
     description = models.TextField(name='description')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
