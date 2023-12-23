@@ -16,6 +16,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
 import datetime
+from django.contrib.auth.models import User
 
 
 
@@ -72,6 +73,21 @@ def register(request):
             return redirect('main:login')
     context = {'form':form}
     return render(request, 'register.html', context)
+
+@csrf_exempt
+def register_flutter(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({"status": False, "message": "Register gagal, username sudah digunakan."}, status=400)
+    
+        if username is not None and password is not None:
+            user = User.objects.create_user(username=username, password=password)
+            user.save()
+            return JsonResponse({'status': True, 'message': 'Sukses membuat akun'}, status=201)
+    return JsonResponse({'error': 'Invalid Method'}, status=400)
 
 @csrf_exempt
 def login_user(request):
